@@ -2,6 +2,10 @@
 .content{
     position: fixed;
     top: 40px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
 }
 .banner{
     width: 10rem;
@@ -12,6 +16,65 @@
     color:#333;
     box-shadow: 0 0 5px #ccc;
 }
-.mint-search{
-    height: auto;
+.mint-tab-item{
+    padding: 5px 0;
+    color: #999;
+    p{
+        margin-bottom: 4px;
+        .icon{
+          font-size:30px;   
+        }
+    }
+}
+.mint-tabbar > .mint-tab-item.is-selected{
+    color:#333;
+}
+.index-nav{
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 10px solid #e7e7e7;
+    p{
+        padding: 5px 0 10px;
+    }
+}
+
+.rush-buy{
+    padding: 10px;
+    border-bottom: 10px solid #e7e7e7;
+    .time{
+        margin: 0 3px;
+        padding: 3px;
+        background-color: #b1aeb1;
+        color: #fff;
+    }
+}
+.seckill-list{
+    width: 100%;
+    overflow-x: scroll;
+    li{
+        padding: 10px;
+        width: 3.3rem;
+        text-align: center;
+        .pic{
+            margin-bottom: 5px;
+            width: 3.3rem;
+            height: 3.3rem;
+            background-color: orange;
+        }
+    }
+}
+.recommend-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .recommend-item{
+        width: 4.9rem;
+        margin-bottom: 15px;
+        .pic{
+            margin-bottom: 5px;
+            width: 4.9rem;
+            height: 4.9rem;
+            background-color: green;
+        }
+    }
 }
