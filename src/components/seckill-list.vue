@@ -13,48 +13,14 @@
       </div>
     </div>
     <ul class="seckill-list flex">
-      <li>
-        <a href="#">
-          <div class="pic"></div>
-          <div>
-            <span class="fz-14 price">￥19.80</span>
-            <span class="fz-12 c9 text-line">￥32.00</span>
+      <li v-for="(item,index) in seckill.list" :key="index">
+        <a :href="item.url">
+          <div class="pic">
+            <img :src="item.imgUrl" alt="">
           </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="pic"></div>
           <div>
-            <span class="fz-14 price">￥19.80</span>
-            <span class="fz-12 c9 text-line">￥32.00</span>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="pic"></div>
-          <div>
-            <span class="fz-14 price">￥19.80</span>
-            <span class="fz-12 c9 text-line">￥32.00</span>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="pic"></div>
-          <div>
-            <span class="fz-14 price">￥19.80</span>
-            <span class="fz-12 c9 text-line">￥32.00</span>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="pic"></div>
-          <div>
-            <span class="fz-14 price">￥19.80</span>
-            <span class="fz-12 c9 text-line">￥32.00</span>
+            <span class="fz-14 price">￥{{item.newPrice}}</span>
+            <span class="fz-12 c9 text-line">￥{{item.oldPrice}}</span>
           </div>
         </a>
       </li>
@@ -69,10 +35,34 @@ export default {
         hour:"03",
         minute:"18",
         second:"33",
+        clearTime:null
       }
     },
     mounted() {
-        console.log(this.seckill)
+        this.clearTime = setInterval(() => {
+          this.countDown();
+        }, 1000);
+    },
+    methods: {
+      countDown(){
+        let toTime = new Date(this.seckill.time).getTime();
+        let nowDate = new Date().getTime();
+        let timeDiff = toTime - nowDate;
+        if(timeDiff>0){
+          this.hour = this.addZero(Math.floor(timeDiff / 1000 / 60 / 60 % 24))
+          this.minute = this.addZero(Math.floor(timeDiff / 1000 / 60 % 60))
+          this.second = this.addZero(Math.floor(timeDiff / 1000 % 60))
+        }else{
+          clearInterval(this.clearTime)
+        }
+      },
+      addZero(num){
+        if(num < 10){
+          return "0" + num;
+        }else{
+          return num
+        }
+      }
     },
 };
 </script>

@@ -24,8 +24,10 @@ import "@/assets/style/my.less"
 //引入路由
 import router from './router/index'
 
-
-Vue.config.productionTip = false
+// 数据模拟Api
+// import axios from 'axios'
+// import VueAxios from 'vue-axios'
+// Vue.use(VueAxios,axios);
 
 new Vue({
   router:router,

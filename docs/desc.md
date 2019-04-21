@@ -3,10 +3,12 @@
 
 ## 依赖库
 - vue-router
-- mock.js
+- mockjs
 - mint-UI
 - axios
-- less less-loader
+- vue-axios
+- less
+- less-loader
 - vue-resource
 - lib-flexible
 
