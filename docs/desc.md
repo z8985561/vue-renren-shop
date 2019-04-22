@@ -21,4 +21,9 @@
 - login.vue ......登陆页面
 - register.vue ......注册页面
 
-## 在src/main.js 引入依赖
+## src/components 组件
+- recommend-list ......推荐列表组件
+- seckill-list ......限时抢购组件
+
+
+## scr/api 数据接口

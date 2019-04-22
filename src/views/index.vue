@@ -94,11 +94,20 @@ export default {
     };
   },
   mounted() {
-    this.banner = indexData.data.banner;
-    this.seckillData = indexData.data.seckillData;
-    this.recommendData = indexData.data.recommendData;
-    this.cartTotal = indexData.data.cartTotal;
-    this.mineTip = indexData.data.mineTip;
+    var that = this;
+    function getBanner(){
+       return that.$axios.get('/api/banner');
+    }
+    function getSeckill(){
+      return that.$axios.get('/api/seckill');
+    }
+    function getRecommend(){
+      return that.$axios.get('/api/recommend');
+    }
+    this.$axios.all([getBanner(), getSeckill(),getRecommend()])
+    .then(axios.spread(function (banner, seckill, recommend) {
+      console.log(banner, seckill, recommend)
+    }));
   },
   methods: {
     onSearch() {
